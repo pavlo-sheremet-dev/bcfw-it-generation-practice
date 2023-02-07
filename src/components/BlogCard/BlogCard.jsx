@@ -1,3 +1,4 @@
+import { formatDistanceToNow } from 'date-fns';
 import PropTypes from 'prop-types';
 
 import {
@@ -13,7 +14,7 @@ import {
   UserBox,
   UserInfo,
   UserName,
-  Date,
+  Date as DateComponent,
 } from './BlogCard.styled';
 
 export const BlogCard = ({
@@ -25,6 +26,7 @@ export const BlogCard = ({
   description,
   avatar,
 }) => {
+  const result = formatDistanceToNow(new Date(postedAt));
   return (
     <Card>
       <CardHeader>
@@ -40,7 +42,7 @@ export const BlogCard = ({
           <Avatar src={avatar} alt={name} />
           <UserInfo>
             <UserName>{name}</UserName>
-            <Date>{postedAt}</Date>
+            <DateComponent>{result}</DateComponent>
           </UserInfo>
         </UserBox>
       </CardFooter>
