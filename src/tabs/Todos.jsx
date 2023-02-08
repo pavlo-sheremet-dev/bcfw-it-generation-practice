@@ -23,11 +23,19 @@ export class Todos extends Component {
         {todos.length !== 0 ? (
           <Grid>
             <GridItem>
-              <Todo />
+              {todos.map((el, idx) => (
+                <Todo
+                  key={el.id}
+                  id={el.id}
+                  idx={idx}
+                  description={el.todo}
+                  deleteTodo={this.deleteTodo}
+                />
+              ))}
             </GridItem>
           </Grid>
         ) : (
-          <Text>there are no any todos</Text>
+          <Text>There are no any todos</Text>
         )}
       </>
     );
