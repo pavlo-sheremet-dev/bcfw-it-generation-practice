@@ -1,9 +1,15 @@
-import {BoardHeader, BoardTitle, LeaderBoard, LeaderBoardProfiles, TitleBottom, TitleTop,} from './ForbesList.styled';
-import {ForbesListItem} from "../ForbesListItem/ForbesListItem";
-import PropTypes from "prop-types";
+import {
+  BoardHeader,
+  BoardTitle,
+  LeaderBoard,
+  LeaderBoardProfiles,
+  TitleBottom,
+  TitleTop,
+} from './ForbesList.styled';
+import { ForbesListItem } from '../ForbesListItem/ForbesListItem';
+import PropTypes from 'prop-types';
 
-
-export const ForbesList = ({list}) => {
+export const ForbesList = ({ list }) => {
   return (
     <LeaderBoard>
       <BoardHeader>
@@ -14,11 +20,18 @@ export const ForbesList = ({list}) => {
       </BoardHeader>
 
       <LeaderBoardProfiles>
-        {list.map(({id, name, capital, avatar, isIncrease}) => (
-          <ForbesListItem key={id} name={name} capital={capital} avatar={avatar} isIncrease={isIncrease}/>
+        {list.map(({ id, name, capital, avatar, isIncrease }) => (
+          <ForbesListItem
+            key={id}
+            name={name}
+            capital={capital}
+            avatar={avatar}
+            isIncrease={isIncrease}
+          />
         ))}
       </LeaderBoardProfiles>
-    </LeaderBoard>)
+    </LeaderBoard>
+  );
 };
 
 ForbesList.propTypes = {
@@ -29,6 +42,6 @@ ForbesList.propTypes = {
       capital: PropTypes.number.isRequired,
       avatar: PropTypes.string.isRequired,
       isIncrease: PropTypes.bool.isRequired,
-    }).isRequired
-  ).isRequired
-}
+    }).isRequired,
+  ).isRequired,
+};
