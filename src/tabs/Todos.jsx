@@ -5,6 +5,8 @@ import { Grid, GridItem, SearchForm, EditForm, Text, Todo } from 'components';
 export class Todos extends Component {
   state = {
     todos: [],
+    // isEditing: false,
+    editingTodo: null,
   };
   addTodo = newTodo => {
     const todo = { ...newTodo, id: nanoid() };
@@ -15,25 +17,46 @@ export class Todos extends Component {
       todos: prevState.todos.filter(todo => todo.id !== id),
     }));
   };
+  editTodo = newTodo => {
+    this.setState(prevState => ({
+      todos: prevState.todos.map(todo => {
+        return todo.id !== newTodo.id ? todo : newTodo;
+      }),
+    }));
+    this.toggleEditForm();
+  };
+
+  toggleEditForm = (todo = null) => {
+    this.setState({ editingTodo: todo ? todo : null });
+    console.log('hello', todo);
+  };
 
   render() {
-    const { todos } = this.state;
+    const { todos, editingTodo } = this.state;
     return (
       <>
-        <SearchForm getTodo={this.addTodo} />
+        {editingTodo ? (
+          <EditForm
+            closeEditForm={this.toggleEditForm}
+            todo={editingTodo}
+            editTodo={this.editTodo}
+          />
+        ) : (
+          <SearchForm getTodo={this.addTodo} />
+        )}
         {todos.length !== 0 ? (
           <Grid>
-            <GridItem>
-              {todos.map((el, idx) => (
+            {todos.map((el, idx) => (
+              <GridItem key={el.id}>
                 <Todo
-                  key={el.id}
                   id={el.id}
                   idx={idx}
                   description={el.todo}
                   deleteTodo={this.deleteTodo}
-                />
-              ))}
-            </GridItem>
+                  openEditForm={this.toggleEditForm}
+                />{' '}
+              </GridItem>
+            ))}
           </Grid>
         ) : (
           <Text>There are no any todos</Text>
