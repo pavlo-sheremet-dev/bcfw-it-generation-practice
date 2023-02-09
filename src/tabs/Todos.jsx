@@ -15,6 +15,7 @@ export class Todos extends Component {
       todos: prevState.todos.filter(todo => todo.id !== id),
     }));
   };
+
   render() {
     const { todos } = this.state;
     return (
