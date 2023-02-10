@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
-import { theme } from 'styles/theme';
 
-export const GlobalStyles = css`
+export const globalStyles = css`
   html {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -12,9 +11,8 @@ export const GlobalStyles = css`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
       'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
       'Helvetica Neue', sans-serif;
-    background: ${theme.colors.mainBackground};
     min-height: 100vh;
-
+    background: #cccccc;
     font-style: normal;
   }
 

@@ -1,50 +1,39 @@
-import {
-  BlogCard,
-  Container,
-  Section,
-  Heading,
-  Statistics,
-  ForbesList,
-  CryptoHistory,
-} from 'components';
-import article from 'data/article.json';
-import data from 'data/data.json';
-import list from 'data/forbes.json';
+import { Container, Section, Layout, Header } from 'components';
+import { Component } from 'react';
+import { colors } from 'styles/colors';
 
-export const App = () => {
-  return (
-    <Section>
-      <Container>
-        <Heading marginBottom="50px" textAlign="center">
-          Task 1
-        </Heading>
-        <BlogCard
-          avatar={article.avatar}
-          description={article.description}
-          name={article.name}
-          postedAt={article.postedAt}
-          poster={article.poster}
-          tag={article.tag}
-          title={article.title}
-        />
-        <BlogCard {...article} />
+import { theme } from 'styles';
 
-        <Heading marginTop="50px" marginBottom="50px" textAlign="center">
-          Task 2
-        </Heading>
-        <Statistics stats={data} title="Main Statistics" />
-        <Statistics stats={data} />
+class App extends Component {
+  state = { themeTitle: 'light' };
 
-        <Heading marginTop="50px" marginBottom="50px" textAlign="center">
-          Task 3
-        </Heading>
-        <ForbesList list={list} />
+  switchTheme = () => {
+    this.setState(({ themeTitle }) => ({
+      themeTitle: themeTitle === 'light' ? 'dark' : 'light',
+    }));
+  };
 
-        <Heading marginTop="50px" marginBottom="50px" textAlign="center">
-          Task 4
-        </Heading>
-        <CryptoHistory />
-      </Container>
-    </Section>
-  );
-};
+  render() {
+    const { themeTitle } = this.state;
+    const normalizedTheme = { ...theme, ...colors[themeTitle] };
+
+    return (
+      <Layout theme={normalizedTheme}>
+        <Header switchTheme={this.switchTheme} themeTitle={themeTitle} />
+
+        <main>
+          <Section>
+            <Container>
+              <h1>Section title</h1>
+              <p>Section subtitle</p>
+              <br />
+              <p>Some text</p>
+            </Container>
+          </Section>
+        </main>
+      </Layout>
+    );
+  }
+}
+
+export { App };
