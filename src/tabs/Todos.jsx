@@ -5,18 +5,20 @@ import { Grid, GridItem, SearchForm, EditForm, Text, Todo } from 'components';
 export class Todos extends Component {
   state = {
     todos: [],
-    // isEditing: false,
     editingTodo: null,
   };
+
   addTodo = newTodo => {
     const todo = { ...newTodo, id: nanoid() };
     this.setState(prevState => ({ todos: [...prevState.todos, todo] }));
   };
+
   deleteTodo = id => {
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => todo.id !== id),
     }));
   };
+
   editTodo = newTodo => {
     this.setState(prevState => ({
       todos: prevState.todos.map(todo => {
@@ -28,7 +30,6 @@ export class Todos extends Component {
 
   toggleEditForm = (todo = null) => {
     this.setState({ editingTodo: todo ? todo : null });
-    console.log('hello', todo);
   };
 
   render() {
@@ -46,15 +47,15 @@ export class Todos extends Component {
         )}
         {todos.length !== 0 ? (
           <Grid>
-            {todos.map((el, idx) => (
-              <GridItem key={el.id}>
+            {todos.map(({ id, todo }, idx) => (
+              <GridItem key={id}>
                 <Todo
-                  id={el.id}
+                  id={id}
                   idx={idx}
-                  description={el.todo}
+                  description={todo}
                   deleteTodo={this.deleteTodo}
                   openEditForm={this.toggleEditForm}
-                />{' '}
+                />
               </GridItem>
             ))}
           </Grid>

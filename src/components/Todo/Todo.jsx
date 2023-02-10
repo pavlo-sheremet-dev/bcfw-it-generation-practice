@@ -6,13 +6,14 @@ export const Todo = ({ idx, description, deleteTodo, id, openEditForm }) => {
   const handleClick = () => {
     deleteTodo(id);
   };
+
   const handleEditClick = () => {
     openEditForm({
       id,
       description,
     });
   };
-  console.log(description);
+
   return (
     <TodoWrapper>
       <Text textAlign="center" marginBottom="20px">

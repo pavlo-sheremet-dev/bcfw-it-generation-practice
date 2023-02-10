@@ -14,7 +14,6 @@ export class SearchForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // console.log(this.state);
     this.props.getTodo({ ...this.state });
     this.setState({ todo: '' });
   };
