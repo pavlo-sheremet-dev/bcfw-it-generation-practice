@@ -5,17 +5,17 @@ import { FormBtn, InputSearch, SearchFormStyled } from './SearchForm.styled';
 
 export class SearchForm extends Component {
   state = {
-    todo: '',
+    value: '',
   };
 
   handleChange = e => {
-    this.setState({ todo: e.target.value });
+    this.setState({ value: e.target.value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.getTodo({ ...this.state });
-    this.setState({ todo: '' });
+    this.props.onSubmit({ ...this.state });
+    this.setState({ value: '' });
   };
 
   render() {
@@ -30,7 +30,7 @@ export class SearchForm extends Component {
           required
           autoFocus
           onChange={this.handleChange}
-          value={this.state.todo}
+          value={this.state.value}
         />
       </SearchFormStyled>
     );

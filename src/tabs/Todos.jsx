@@ -60,11 +60,11 @@ export class Todos extends Component {
             editTodo={this.editTodo}
           />
         ) : (
-          <SearchForm getTodo={this.addTodo} />
+          <SearchForm onSubmit={this.addTodo} />
         )}
         {todos.length !== 0 ? (
           <Grid>
-            {todos.map(({ id, todo }, idx) => (
+            {todos.map(({ id, value: todo }, idx) => (
               <GridItem key={id}>
                 <Todo
                   id={id}
