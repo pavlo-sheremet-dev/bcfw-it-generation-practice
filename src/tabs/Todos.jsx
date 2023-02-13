@@ -4,9 +4,24 @@ import { Grid, GridItem, SearchForm, EditForm, Text, Todo } from 'components';
 
 export class Todos extends Component {
   state = {
-    todos: [],
+    todos: [{ todo: 'lkjlj', id: 'id-1' }],
     editingTodo: null,
   };
+
+  componentDidMount() {
+    const todos = JSON.parse(localStorage.getItem('todos'));
+    if (todos) {
+      this.setState({
+        todos,
+      });
+    }
+  }
+
+  componentDidUpdate(_, prevState) {
+    if (prevState.todos !== this.state.todos) {
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+  }
 
   addTodo = newTodo => {
     const todo = { ...newTodo, id: nanoid() };
