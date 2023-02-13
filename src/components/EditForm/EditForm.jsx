@@ -10,7 +10,7 @@ export const EditForm = ({ closeEditForm, todo, editTodo }) => {
     const value = event.target.search.value;
     editTodo({
       id: todo.id,
-      todo: value,
+      value,
     });
   };
   return (
