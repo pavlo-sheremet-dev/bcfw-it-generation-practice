@@ -2,20 +2,22 @@ import { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { Grid, GridItem, SearchForm, EditForm, Text, Todo } from 'components';
 
+const initialTodos = [{ todo: 'initialTodo', id: 'id-1' }];
+
 export class Todos extends Component {
   state = {
-    todos: [{ todo: 'lkjlj', id: 'id-1' }],
+    todos: JSON.parse(localStorage.getItem('todos')) ?? initialTodos,
     editingTodo: null,
   };
 
-  componentDidMount() {
-    const todos = JSON.parse(localStorage.getItem('todos'));
-    if (todos) {
-      this.setState({
-        todos,
-      });
-    }
-  }
+  // componentDidMount() {
+  //   const todos = JSON.parse(localStorage.getItem('todos'));
+  //   if (todos) {
+  //     this.setState({
+  //       todos,
+  //     });
+  //   }
+  // }
 
   componentDidUpdate(_, prevState) {
     if (prevState.todos !== this.state.todos) {
