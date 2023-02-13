@@ -3,10 +3,6 @@ import { TodoWrapper, DeleteButton, EditButton } from './Todo.styled';
 import { RiDeleteBinLine, RiEdit2Line } from 'react-icons/ri';
 
 export const Todo = ({ idx, description, deleteTodo, id, openEditForm }) => {
-  const handleClick = () => {
-    deleteTodo(id);
-  };
-
   const handleEditClick = () => {
     openEditForm({
       id,
@@ -20,7 +16,7 @@ export const Todo = ({ idx, description, deleteTodo, id, openEditForm }) => {
         TODO #{idx + 1}
       </Text>
       <Text>{description}</Text>
-      <DeleteButton type="button" onClick={handleClick}>
+      <DeleteButton type="button" onClick={() => deleteTodo(id)}>
         <RiDeleteBinLine size={24} />
       </DeleteButton>
       <EditButton type="button" onClick={handleEditClick}>

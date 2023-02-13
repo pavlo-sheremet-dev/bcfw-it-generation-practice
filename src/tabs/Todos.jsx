@@ -10,18 +10,18 @@ export class Todos extends Component {
 
   addTodo = newTodo => {
     const todo = { ...newTodo, id: nanoid() };
-    this.setState(prevState => ({ todos: [...prevState.todos, todo] }));
+    this.setState(({ todos }) => ({ todos: [...todos, todo] }));
   };
 
   deleteTodo = id => {
-    this.setState(prevState => ({
-      todos: prevState.todos.filter(todo => todo.id !== id),
+    this.setState(({ todos }) => ({
+      todos: todos.filter(todo => todo.id !== id),
     }));
   };
 
   editTodo = newTodo => {
-    this.setState(prevState => ({
-      todos: prevState.todos.map(todo => {
+    this.setState(({ todos }) => ({
+      todos: todos.map(todo => {
         return todo.id !== newTodo.id ? todo : newTodo;
       }),
     }));
