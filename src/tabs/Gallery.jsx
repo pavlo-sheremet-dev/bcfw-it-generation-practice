@@ -1,10 +1,11 @@
 import { Component } from 'react';
-
-import * as api from 'service/image-service';
+import { ToastContainer, toast } from 'react-toastify';
 
 import { Button, SearchForm, Grid, GridItem, Text, CardItem } from 'components';
-import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';
+
+import * as api from 'service/image-service';
 
 export class Gallery extends Component {
   state = {
@@ -16,9 +17,6 @@ export class Gallery extends Component {
     error: '',
   };
 
-  // componentDidMount() {
-  //   this.getImages();
-  // }
   componentDidUpdate(_, prevState) {
     const { query, page, error } = this.state;
     if (prevState.query !== query || prevState.page !== page) {
@@ -33,15 +31,15 @@ export class Gallery extends Component {
     const { query, page } = this.state;
     try {
       this.setState({ loading: true });
-      const { photos, total_results } = await api.getImages(query, page);
-      if (!photos.length) {
+      const { images, totalImages } = await api.getImages(query, page);
+      if (!images.length) {
         this.setState({ error: 'Sorry. There are no images ... 😭' });
         return;
       }
       this.setState(prevState => ({
-        images: [...prevState.images, ...photos],
+        images: [...prevState.images, ...images],
         error: '',
-        totalImages: total_results,
+        totalImages,
       }));
     } catch (error) {
       this.setState({ error: 'Oops. Something went wrong 😭' });
@@ -80,7 +78,7 @@ export class Gallery extends Component {
               return (
                 <GridItem key={id}>
                   <CardItem>
-                    <img src={src.small} alt={alt} />
+                    <img src={src} alt={alt} />
                   </CardItem>
                 </GridItem>
               );

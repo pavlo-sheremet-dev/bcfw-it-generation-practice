@@ -14,5 +14,11 @@ export const getImages = async (query, page) => {
     page,
   };
   const { data } = await axios.get('/search', { params });
-  return data;
+  const { photos, total_results } = data;
+  const images = photos.map(({ id, alt, src }) => ({
+    id,
+    alt,
+    src: src.small,
+  }));
+  return { images, totalImages: total_results };
 };
