@@ -1,6 +1,7 @@
 import { Component } from 'react';
 
-import * as ImageService from 'service/image-service';
+import * as api from 'service/image-service';
+
 import { Button, SearchForm, Grid, GridItem, Text, CardItem } from 'components';
 
 export class Gallery extends Component {
@@ -19,7 +20,7 @@ export class Gallery extends Component {
 
   getImages = async () => {
     try {
-      const { photos } = await ImageService.getImages('cat', 1);
+      const { photos } = await api.getImages('cat', 1);
       this.setState(prevState => ({
         images: [...prevState.images, ...photos],
       }));
@@ -27,6 +28,7 @@ export class Gallery extends Component {
       console.log(error);
     }
   };
+
   render() {
     const { images } = this.state;
     return (
