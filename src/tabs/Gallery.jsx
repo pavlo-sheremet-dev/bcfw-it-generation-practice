@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
 import { Button, SearchForm, Grid, GridItem, Text, CardItem } from 'components';
@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import * as api from 'service/image-service';
 
+// const GalleryNew
 export class Gallery extends Component {
   state = {
     images: [],
