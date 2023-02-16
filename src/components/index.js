@@ -12,3 +12,4 @@ export * from 'components/SearchForm/SearchForm.styled';
 export * from 'components/Section/Section.styled';
 export * from 'components/Text/Text.styled';
 export * from 'components/Todo/Todo';
+export * from 'components/GalleryItem/GalleryItem';

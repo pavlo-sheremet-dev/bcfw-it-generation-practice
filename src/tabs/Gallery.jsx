@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
-import { Button, SearchForm, Grid, GridItem, Text, CardItem } from 'components';
+import {
+  Button,
+  SearchForm,
+  Grid,
+  GridItem,
+  Text,
+  GalleryItem,
+} from 'components';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -65,12 +72,14 @@ export const Gallery = () => {
       <SearchForm onSubmit={getQuery} />
       {images.length !== 0 && (
         <Grid>
-          {images.map(({ alt, src, id }) => {
+          {images.map(({ alt, src, id, isScrollAnchor }) => {
             return (
               <GridItem key={id}>
-                <CardItem>
-                  <img src={src} alt={alt} />
-                </CardItem>
+                <GalleryItem
+                  src={src}
+                  alt={alt}
+                  isScrollAnchor={isScrollAnchor}
+                />
               </GridItem>
             );
           })}

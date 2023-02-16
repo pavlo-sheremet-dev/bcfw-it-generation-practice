@@ -15,10 +15,11 @@ export const getImages = async (query, page) => {
   };
   const { data } = await axios.get('/search', { params });
   const { photos, total_results } = data;
-  const images = photos.map(({ id, alt, src }) => ({
+  const images = photos.map(({ id, alt, src }, idx) => ({
     id,
     alt,
-    src: src.small,
+    src: src.medium,
+    isScrollAnchor: !idx,
   }));
   return { images, totalImages: total_results };
 };

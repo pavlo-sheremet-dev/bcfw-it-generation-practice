@@ -1,29 +1,22 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
 import { Grid, GridItem, SearchForm, EditForm, Text, Todo } from 'components';
-import { useLocalStorage } from 'hooks/useLocalStorage';
+
+import { useArrayHandler } from 'hooks/useArrayHandler';
 
 const initialTodos = [{ value: 'initialTodo', id: 'id-1' }];
 
 export const Todos = () => {
-  const [todos, setTodos] = useLocalStorage('todos', initialTodos);
+  const {
+    array: todos,
+    addNewObject: addTodo,
+    deleteObject: deleteTodo,
+    editObject,
+  } = useArrayHandler('todos', initialTodos);
+
   const [editingTodo, setEditingTodo] = useState(null);
 
-  const addTodo = newTodo => {
-    const todo = { ...newTodo, id: nanoid() };
-    setTodos(prevTodos => [...prevTodos, todo]);
-  };
-
-  const deleteTodo = id => {
-    setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id));
-  };
-
   const editTodo = newTodo => {
-    setTodos(prevTodos =>
-      prevTodos.map(todo => {
-        return todo.id !== newTodo.id ? todo : newTodo;
-      })
-    );
+    editObject(newTodo);
     toggleEditForm();
   };
 

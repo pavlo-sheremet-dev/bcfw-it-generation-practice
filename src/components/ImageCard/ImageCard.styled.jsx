@@ -6,7 +6,7 @@ export const CardItem = styled.div`
   align-items: center;
   justify-content: center;
 
-  height: 100%;
+  height: 150px;
 
   background-color: ${props => props.color};
 
