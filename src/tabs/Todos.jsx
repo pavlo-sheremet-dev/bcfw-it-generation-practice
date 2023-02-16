@@ -1,25 +1,13 @@
-import { useEffect, useState, useRef } from 'react';
+import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { Grid, GridItem, SearchForm, EditForm, Text, Todo } from 'components';
+import { useLocalStorage } from 'hooks/useLocalStorage';
 
 const initialTodos = [{ value: 'initialTodo', id: 'id-1' }];
 
 export const Todos = () => {
-  const [todos, setTodos] = useState(
-    () => JSON.parse(localStorage.getItem('todos')) ?? initialTodos
-  );
+  const [todos, setTodos] = useLocalStorage('todos', initialTodos);
   const [editingTodo, setEditingTodo] = useState(null);
-
-  const firstRender = useRef(true);
-
-  useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
-
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
 
   const addTodo = newTodo => {
     const todo = { ...newTodo, id: nanoid() };
