@@ -1,3 +1,3 @@
 export const dark = {
-  colors: { mainBackground: '#000000', text: '#f2f2f2' },
+  colors: { mainBackground: '#000000', text: '#f2f2f2', brand: '#7c8661' },
 };
