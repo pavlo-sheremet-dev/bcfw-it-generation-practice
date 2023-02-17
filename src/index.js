@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'modern-normalize';
-import { App } from 'components';
+import { App, Media } from 'components';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <Media>
+      <App />
+    </Media>
   </React.StrictMode>,
 );

@@ -59,9 +59,22 @@ export const globalStyles = css`
   }
 
   #root {
+    min-height: 100vh;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      'header header'
+      'main main'
+      'footer footer';
+
     @media (min-width: 768px) {
       max-width: 768px;
+      grid-template-areas:
+        'header header'
+        'sidebar main'
+        'footer footer';
     }
 
     @media (min-width: 1280px) {

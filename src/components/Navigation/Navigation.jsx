@@ -5,13 +5,13 @@ export const Navigation = () => {
     <nav>
       <NavList>
         <li>
-          <a href="/">Projects</a>
+          <a href="/">Link_to_Page_1</a>
         </li>
         <li>
-          <a href="/">About us</a>
+          <a href="/">Link_to_Page_2</a>
         </li>
         <li>
-          <a href="/">Contacts</a>
+          <a href="/">Link_to_Page_3</a>
         </li>
       </NavList>
     </nav>

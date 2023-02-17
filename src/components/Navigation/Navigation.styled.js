@@ -6,8 +6,6 @@ export const NavList = styled.ul`
   gap: 20px;
   font-size: 20px;
 
-  @media (min-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  flex-direction: column;
+  align-items: center;
 `;

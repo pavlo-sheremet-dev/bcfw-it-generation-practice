@@ -1,10 +1,18 @@
+import { colorsKeys, useTheme } from 'context/ThemeContext';
+
 import { BsSun, BsMoon } from 'react-icons/bs';
 import { ThemeButton } from './ThemeSwitcher.styled';
 
-export const ThemeSwitcher = ({ switchTheme, themeTitle }) => {
+export const ThemeSwitcher = () => {
+  const { themeTitle, switchTheme } = useTheme();
+
   return (
     <ThemeButton type="button" onClick={switchTheme}>
-      {themeTitle === 'light' ? <BsSun size={30} /> : <BsMoon size={30} />}
+      {themeTitle === colorsKeys.LIGHT ? (
+        <BsSun size={30} />
+      ) : (
+        <BsMoon size={30} />
+      )}
     </ThemeButton>
   );
 };
