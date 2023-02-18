@@ -4,7 +4,7 @@ import { ThemeContext } from 'context/ThemeContext';
 import { useThemeSwitcher } from 'hooks/useThemeSwitcher';
 import { useMedia } from 'context/MediaContext';
 
-import { Footer, Header, Main, SideBar } from 'components';
+import { Footer, Header, Main, ParticleWave, SideBar } from 'components';
 // import { Wrapper } from './Layout.styled';
 
 import GlobalStyles from 'styles/GlobalStyles/GlobalStyles';
@@ -14,7 +14,7 @@ import { colors } from 'styles/colors';
 
 export const Layout = ({ children }) => {
   const [themeTitle, switchTheme] = useThemeSwitcher();
-  const { isMobile } = useMedia();
+  const { isMobile, isDesktop } = useMedia();
 
   const normalizedTheme = { ...theme, ...colors[themeTitle] };
 
@@ -31,6 +31,7 @@ export const Layout = ({ children }) => {
 
         <Footer />
         {/* </Wrapper> */}
+        {isDesktop && <ParticleWave />}
       </ThemeProvider>
     </ThemeContext.Provider>
   );

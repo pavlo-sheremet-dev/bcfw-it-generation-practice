@@ -18,5 +18,6 @@ export * from 'components/Navigation/Navigation';
 export * from 'components/Logo/Logo';
 export * from 'components/ThemeSwitcher/ThemeSwitcher';
 export * from 'components/MobileMenu/MobileMenu';
+export * from 'components/Particle/Particle';
 // Sections
 export * from 'components/Sections/ExampleSection';
