@@ -11,3 +11,4 @@
 |   **Module - 04**   |   [Link](https://github.com/pavlo-sheremet-dev/bcfw-it-generation-practice/tree/module-04)    | [Link](https://github.com/pavlo-sheremet-dev/bcfw-it-generation-practice/tree/module-04-start-files) |
 | **Module - 04 v2**  | [Link](https://github.com/pavlo-sheremet-dev/bcfw-it-generation-practice/tree/module-04.v1.1) |                                    useArrayHandler, smooth Scroll                                    |
 | **Adaptive design** |  [Link](https://github.com/pavlo-sheremet-dev/bcfw-it-generation-practice/tree/PS_adaptive)   |                                  Media, Contexts, Hooks, Components                                  |
+|   **Module - 06**   |   [Link](https://github.com/pavlo-sheremet-dev/bcfw-it-generation-practice/tree/module-06)    | [Link](https://github.com/pavlo-sheremet-dev/bcfw-it-generation-practice/tree/module-06-start-files) |
