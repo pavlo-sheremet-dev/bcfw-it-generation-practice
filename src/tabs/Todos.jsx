@@ -1,5 +1,4 @@
 import { Grid, GridItem, SearchForm, EditForm, Text, Todo } from 'components';
-import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectEditingTodo, selectTodos } from 'redux/selectors';
 import { addTodo } from 'redux/todos/slice';
@@ -10,7 +9,7 @@ export const Todos = () => {
   const dispatch = useDispatch();
 
   const addNewTodo = ({ value }) => {
-    dispatch(addTodo({ value, id: nanoid(10) }));
+    dispatch(addTodo({ value }));
   };
 
   return (
