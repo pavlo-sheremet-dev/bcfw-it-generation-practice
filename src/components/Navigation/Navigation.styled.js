@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { NavLink as L } from 'react-router-dom';
 
 export const NavList = styled.ul`
   display: flex;
@@ -8,4 +9,10 @@ export const NavList = styled.ul`
 
   flex-direction: column;
   align-items: center;
+`;
+
+export const NavLink = styled(L)`
+  &.active {
+    color: ${({ theme }) => theme.colors.brand};
+  }
 `;

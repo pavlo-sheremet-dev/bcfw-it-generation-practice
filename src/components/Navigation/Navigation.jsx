@@ -1,17 +1,19 @@
-import { NavList } from './Navigation.styled';
+import { NavLink, NavList } from './Navigation.styled';
 
 export const Navigation = () => {
   return (
     <nav>
       <NavList>
         <li>
-          <a href="/">Link_to_Page_1</a>
+          <NavLink to="/" end>
+            Home
+          </NavLink>
         </li>
         <li>
-          <a href="/">Link_to_Page_2</a>
+          <NavLink to="/page1">Link_to_Page_1</NavLink>
         </li>
         <li>
-          <a href="/">Link_to_Page_3</a>
+          <NavLink to="/page2">Link_to_Page_2</NavLink>
         </li>
       </NavList>
     </nav>

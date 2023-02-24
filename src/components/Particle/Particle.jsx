@@ -9,5 +9,11 @@ export const ParticleWave = () => {
     await loadFull(engine);
   }, []);
 
-  return <Particles params={particlesConfig} init={particlesInit} />;
+  return (
+    <Particles
+      className="particle"
+      options={particlesConfig}
+      init={particlesInit}
+    />
+  );
 };

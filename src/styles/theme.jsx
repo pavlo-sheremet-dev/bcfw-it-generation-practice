@@ -13,4 +13,10 @@ export const theme = Object.freeze({
   animation: {
     cubicBezier: '0.25s cubic-bezier(0.7, 0.98, 0.86, 0.98)',
   },
+  breakpoints: {
+    sm: '480px',
+    md: '768px',
+    lg: '1280px',
+    xl: '1920px',
+  },
 });

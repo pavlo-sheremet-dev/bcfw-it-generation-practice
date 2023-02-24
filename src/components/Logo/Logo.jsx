@@ -2,7 +2,7 @@ import { Link } from './Logo.styled';
 
 export const Logo = () => {
   return (
-    <Link href="/">
+    <Link to={'/'}>
       LO<span>GO</span>
     </Link>
   );

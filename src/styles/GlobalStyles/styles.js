@@ -1,5 +1,7 @@
 import { css } from '@emotion/react';
 
+import { theme } from 'styles';
+
 export const globalStyles = css`
   html {
     box-sizing: border-box;
@@ -58,6 +60,10 @@ export const globalStyles = css`
       monospace;
   }
 
+  .particle {
+    z-index: -1;
+  }
+
   #root {
     min-height: 100vh;
     margin: 0 auto;
@@ -69,7 +75,7 @@ export const globalStyles = css`
       'main main'
       'footer footer';
 
-    @media (min-width: 768px) {
+    @media (min-width: ${theme.breakpoints.md}) {
       max-width: 768px;
       grid-template-areas:
         'header header'
@@ -77,11 +83,11 @@ export const globalStyles = css`
         'footer footer';
     }
 
-    @media (min-width: 1280px) {
+    @media (min-width: ${theme.breakpoints.lg}) {
       max-width: 1280px;
     }
 
-    @media (min-width: 1920px) {
+    @media (min-width: ${theme.breakpoints.xl}) {
       max-width: 1920px;
     }
   }

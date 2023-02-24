@@ -2,7 +2,7 @@
   "name": "react-homework-template",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/react-homework-template/",
+  "homepage": "",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -15,6 +15,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-responsive": "^9.0.2",
+    "react-router-dom": "^6.8.1",
     "react-scripts": "^5.0.1",
     "react-tsparticles": "^2.9.3",
     "tsparticles": "^2.9.3",

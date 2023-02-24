@@ -11,8 +11,9 @@ import GlobalStyles from 'styles/GlobalStyles/GlobalStyles';
 
 import { theme } from 'styles';
 import { colors } from 'styles/colors';
+import { Outlet } from 'react-router-dom';
 
-export const Layout = ({ children }) => {
+export const Layout = () => {
   const [themeTitle, switchTheme] = useThemeSwitcher();
   const { isMobile, isDesktop } = useMedia();
 
@@ -27,11 +28,13 @@ export const Layout = ({ children }) => {
         <Header />
         {!isMobile && <SideBar />}
 
-        <Main>{children}</Main>
+        <Main>
+          <Outlet />
+        </Main>
 
         <Footer />
         {/* </Wrapper> */}
-        {isDesktop && <ParticleWave />}
+        {(true || isDesktop) && <ParticleWave />}
       </ThemeProvider>
     </ThemeContext.Provider>
   );
