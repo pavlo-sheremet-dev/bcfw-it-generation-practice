@@ -1,18 +1,16 @@
-import { Container, Section } from 'components';
+import { Container, Section, Text, Title } from 'components';
 
 const Page2 = () => {
   return (
     <>
       <Section>
         <Container>
-          <h1>PAGE 2</h1>
-          <p>Page 2 subtitle</p>
-          <br />
-          <p>
+          <Title>PAGE 2</Title>
+          <Text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
             temporibus assumenda, numquam facilis in vitae deserunt amet iusto
             molestiae alias.
-          </p>
+          </Text>
         </Container>
       </Section>
     </>

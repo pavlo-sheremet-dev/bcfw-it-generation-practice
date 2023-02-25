@@ -1,7 +1,6 @@
 import { ThemeProvider } from '@emotion/react';
+import { useSelector } from 'react-redux';
 
-import { ThemeContext } from 'context/ThemeContext';
-import { useThemeSwitcher } from 'hooks/useThemeSwitcher';
 import { useMedia } from 'context/MediaContext';
 
 import { Footer, Header, Main, ParticleWave, SideBar } from 'components';
@@ -13,29 +12,29 @@ import { theme } from 'styles';
 import { colors } from 'styles/colors';
 import { Outlet } from 'react-router-dom';
 
+import { selectThemeSwitcher } from 'redux/global/selectors';
+
 export const Layout = () => {
-  const [themeTitle, switchTheme] = useThemeSwitcher();
   const { isMobile, isDesktop } = useMedia();
+  const themeTitle = useSelector(selectThemeSwitcher);
 
   const normalizedTheme = { ...theme, ...colors[themeTitle] };
 
   return (
-    <ThemeContext.Provider value={{ themeTitle, switchTheme }}>
-      <ThemeProvider theme={normalizedTheme}>
-        <GlobalStyles theme={normalizedTheme} />
-        {/* <Wrapper> */}
-        {/* wrapper styles was replaced to globalStyles into the #root div */}
-        <Header />
-        {!isMobile && <SideBar />}
+    <ThemeProvider theme={normalizedTheme}>
+      <GlobalStyles theme={normalizedTheme} />
+      {/* <Wrapper> */}
+      {/* wrapper styles was replaced to globalStyles into the #root div */}
+      <Header />
+      {!isMobile && <SideBar />}
 
-        <Main>
-          <Outlet />
-        </Main>
+      <Main>
+        <Outlet />
+      </Main>
 
-        <Footer />
-        {/* </Wrapper> */}
-        {(true || isDesktop) && <ParticleWave />}
-      </ThemeProvider>
-    </ThemeContext.Provider>
+      <Footer />
+      {/* </Wrapper> */}
+      {(true || isDesktop) && <ParticleWave />}
+    </ThemeProvider>
   );
 };

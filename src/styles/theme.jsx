@@ -1,8 +1,17 @@
 export const theme = Object.freeze({
-  fontSizes: {
-    small: '14px',
-    medium: '18px',
-    large: '22px',
+  fs: {
+    xs: '0.075rem',
+    s: '0.875rem',
+    m: '1rem',
+    l: '1.125rem',
+    xl: '1.25rem',
+    xxl: '1.5rem',
+    title: '1.75rem',
+    title2: '2rem',
+  },
+  fw: {
+    title: 600,
+    subTitle: 500,
   },
   spacing: value => `${4 * value}px`,
   shadows: {

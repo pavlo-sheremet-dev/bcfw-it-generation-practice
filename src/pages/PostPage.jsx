@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { Container, Section, Text, Title } from 'components';
 
-const Page1 = () => {
+const PostPage = () => {
+  const [post, setPost] = useState(null);
+
   return (
     <>
       <Section>
@@ -17,4 +20,4 @@ const Page1 = () => {
   );
 };
 
-export default Page1;
+export default PostPage;

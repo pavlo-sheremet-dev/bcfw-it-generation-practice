@@ -10,8 +10,12 @@ export const Navigation = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/posts">Posts</NavLink>
+        </li>
+        <li>
           <NavLink to="/team">Our team</NavLink>
         </li>
+
         <li>
           <NavLink to="/page1">Link_to_Page_1</NavLink>
         </li>

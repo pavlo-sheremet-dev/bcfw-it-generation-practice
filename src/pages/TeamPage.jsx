@@ -1,13 +1,12 @@
-import { Container, Section } from 'components';
+import { Container, Section, Text, Title } from 'components';
 
 const TeamPage = () => {
   return (
     <>
       <Section>
         <Container>
-          <h1>Команда BCFW</h1>
-          <p>Только вместе</p>
-          <p>
+          <Title>Команда BCFW</Title>
+          <Text>
             Добро пожаловать в мир нашей команды разработчиков! Мы стремимся
             создавать уникальные и инновационные решения, чтобы помочь вашему
             бизнесу достичь максимального потенциала. Мы готовы воплотить в
@@ -15,12 +14,12 @@ const TeamPage = () => {
             соответствуют вашим потребностям и целям. Мы уверены, что наше
             сотрудничество принесет пользу вашему бизнесу и поможет ему стать
             еще лучше!
-          </p>
+          </Text>
         </Container>
       </Section>
       <Section>
         <Container>
-          <h2>Наши лица</h2>
+          <Title as={'h2'}>Наши лица</Title>
           <p>Слайдер</p>
         </Container>
       </Section>

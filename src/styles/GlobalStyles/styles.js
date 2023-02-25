@@ -26,6 +26,7 @@ export const globalStyles = css`
   h6,
   p {
     margin-top: 0;
+    margin-bottom: 0;
   }
 
   ul,
@@ -76,7 +77,7 @@ export const globalStyles = css`
       'footer footer';
 
     @media (min-width: ${theme.breakpoints.md}) {
-      max-width: 768px;
+      max-width: ${theme.breakpoints.md};
       grid-template-areas:
         'header header'
         'sidebar main'
@@ -84,11 +85,11 @@ export const globalStyles = css`
     }
 
     @media (min-width: ${theme.breakpoints.lg}) {
-      max-width: 1280px;
+      max-width: ${theme.breakpoints.lg};
     }
 
     @media (min-width: ${theme.breakpoints.xl}) {
-      max-width: 1920px;
+      max-width: ${theme.breakpoints.xl};
     }
   }
 `;

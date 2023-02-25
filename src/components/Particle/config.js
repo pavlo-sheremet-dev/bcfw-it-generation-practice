@@ -1,8 +1,8 @@
 export const particlesConfig = {
   // background: {
-  //   // color: {
-  //   //   value: '#000000',
-  //   // },
+  //   color: {
+  //     value: '#aa55ff',
+  //   },
   // },
   fpsLimit: 60,
   particles: {
