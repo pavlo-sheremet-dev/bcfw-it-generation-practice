@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div`
+export const LayoutWrapper = styled.div`
   min-height: 100vh;
 
   display: grid;

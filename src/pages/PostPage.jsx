@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { Container, Section, Text, Title } from 'components';
+import { useParams } from 'react-router-dom';
+import { useHttpRequest } from 'hooks/useHttpRequest';
 
 const PostPage = () => {
   const [post, setPost] = useState(null);
+  const { postId } = useParams();
+
+  // const { } = useHttpRequest()
 
   return (
     <>

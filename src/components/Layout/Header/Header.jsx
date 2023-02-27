@@ -3,13 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { useMedia } from 'context/MediaContext';
 
-import {
-  ThemeSwitcher,
-  Logo,
-  IconButton,
-  BackDrop,
-  MobileMenu,
-} from 'components';
+import { ThemeSwitcher, Logo, IconButton, MobileMenu } from 'components';
 import { HeaderContainer, HeaderStyled } from './Header.styled';
 
 import { selectShowMobileMenu } from 'redux/global/selectors';
@@ -38,11 +32,7 @@ export const Header = () => {
           )}
         </HeaderContainer>
       </HeaderStyled>
-      {showMobileMenu && isMobile && (
-        <BackDrop onClose={toggleMobileMenu}>
-          <MobileMenu closeMenu={toggleMobileMenu} />
-        </BackDrop>
-      )}
+      {showMobileMenu && isMobile && <MobileMenu />}
     </>
   );
 };

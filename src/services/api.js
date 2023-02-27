@@ -1,13 +1,13 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
-export const PER_PAGE = 6;
+export const PER_PAGE = 5;
 
 export const fetchPosts = async ({ signal, page = 1 }) => {
   try {
     const { data } = await axios.get('/posts', {
       signal,
-      params: { limit: PER_PAGE, page },
+      params: { limit: PER_PAGE, page, sortBy: 'createdAt', order: 'desc' },
     });
     const { posts, totalPosts } = data;
     return {

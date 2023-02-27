@@ -23,5 +23,6 @@ export * from 'components/ThemeSwitcher/ThemeSwitcher';
 export * from 'components/MobileMenu/MobileMenu';
 export * from 'components/Particle/Particle';
 export * from 'components/Post/Post';
+export * from 'components/Pagination/Pagination';
 // Sections
 export * from 'components/Sections/ExampleSection';
