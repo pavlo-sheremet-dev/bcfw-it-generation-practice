@@ -2,7 +2,7 @@ import { PostHeader } from './PostHeader';
 
 export const PostHeadersList = ({ posts }) => {
   return (
-    <ul>
+    <ul style={{ flexGrow: 1 }}>
       {posts.map(({ id, createdAt, title }, idx) => (
         <PostHeader
           key={id}

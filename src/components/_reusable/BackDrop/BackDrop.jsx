@@ -8,7 +8,6 @@ export const BackDrop = ({ children }) => {
 
   useEffect(() => {
     const handleEsc = e => {
-      console.log('e.code', e.code);
       if (e.code === 'Escape') {
         dispatch(toggleMobileMenu());
       }
