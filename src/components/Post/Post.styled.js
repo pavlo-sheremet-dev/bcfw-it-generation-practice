@@ -1,15 +1,10 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
 import { Link as L } from 'react-router-dom';
 
-export const Box = styled.div`
-  background-color: transparent;
-  transition: background-color 150ms linear;
+export const MotionListItem = styled(motion.li)`
   border-left: 1px solid ${({ theme }) => theme.colors.brand};
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.brandHover};
-  }
 `;
 
 export const Link = styled(L)`
@@ -19,6 +14,13 @@ export const Link = styled(L)`
   justify-content: space-between;
   height: 100%;
   padding: 20px;
+  background-color: transparent;
+  transition: background-color 150ms linear;
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.brandHover};
+  }
 `;
 
 export const PostDate = styled.p`

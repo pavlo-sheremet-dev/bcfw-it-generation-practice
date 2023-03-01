@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
-export const Box = styled.div`
+export const MotionBox = styled(motion.div)`
   & .rc-pagination {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 20px;
   }
 
   & .rc-pagination-item {
@@ -31,25 +31,28 @@ export const Box = styled.div`
   & .rc-pagination-item:focus,
   & .rc-pagination-item:hover {
     border-color: ${({ theme }) => theme.colors.brand};
+    background-color: ${({ theme }) => theme.colors.brandHover};
   }
 
   & .rc-pagination-item.rc-pagination-item-active,
   & .rc-pagination-item.rc-pagination-item-active {
     border-color: ${({ theme }) => theme.colors.brand};
+    background-color: ${({ theme }) => theme.colors.brandHover};
   }
 
   & .rc-pagination-item:focus a,
   & .rc-pagination-item:hover a {
-    color: ${({ theme }) => theme.colors.brand};
+    color: ${({ theme }) => theme.colors.text};
   }
 
   & .rc-pagination-item-active a {
-    color: ${({ theme }) => theme.colors.brand};
+    color: ${({ theme }) => theme.colors.text};
   }
 
   & .rc-pagination-item-active:focus,
   & .rc-pagination-item-active:hover {
     border-color: ${({ theme }) => theme.colors.brand};
+    background-color: ${({ theme }) => theme.colors.brandHover};
   }
 
   & .rc-pagination-item-active:focus a,
@@ -74,6 +77,7 @@ export const Box = styled.div`
   & .rc-pagination-prev:hover button,
   & .rc-pagination-next:hover button {
     border-color: ${({ theme }) => theme.colors.brand};
+    background-color: ${({ theme }) => theme.colors.brandHover};
   }
 
   & .rc-pagination-prev svg,
@@ -83,7 +87,9 @@ export const Box = styled.div`
   }
 
   & .rc-pagination-prev:hover svg,
-  & .rc-pagination-next:hover svg {
+  & .rc-pagination-next:hover svg,
+  & .rc-pagination-prev:focus svg,
+  & .rc-pagination-next:focus svg {
     fill: ${({ theme }) => theme.colors.brand};
   }
 
@@ -93,6 +99,7 @@ export const Box = styled.div`
   & .rc-pagination-next:hover .rc-pagination-item-link {
     color: ${({ theme }) => theme.colors.brand};
     border-color: ${({ theme }) => theme.colors.brand};
+    background-color: ${({ theme }) => theme.colors.brandHover};
   }
 
   & .rc-pagination-prev,

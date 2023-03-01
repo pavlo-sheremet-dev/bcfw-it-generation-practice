@@ -10,8 +10,6 @@ export const ThemeSwitcher = () => {
   const themeTitle = useSelector(selectThemeSwitcher);
   const dispatch = useDispatch();
 
-  console.log('themeTitle', themeTitle);
-
   const handleClick = () => dispatch(switchTheme());
 
   return (

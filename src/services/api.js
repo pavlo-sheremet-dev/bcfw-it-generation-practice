@@ -16,6 +16,7 @@ export const fetchPosts = async ({ signal, page = 1 }) => {
         totalPosts,
         page,
         perPage: PER_PAGE,
+        pages: Math.ceil(totalPosts / PER_PAGE),
       },
       isCancel: false,
     };

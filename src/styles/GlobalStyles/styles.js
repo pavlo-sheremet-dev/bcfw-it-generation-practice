@@ -92,4 +92,19 @@ export const globalStyles = css`
       max-width: ${theme.breakpoints.xl};
     }
   }
+
+  .item-enter {
+    opacity: 0;
+  }
+  .item-enter-active {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+  }
+  .item-exit {
+    opacity: 1;
+  }
+  .item-exit-active {
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+  }
 `;

@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import {
   Container,
   Loader,
+  PagButtonBlock,
   Pagination,
   PostHeadersList,
   Section,
@@ -14,13 +15,17 @@ import { Wrapper } from './PostsPage.styled';
 import { fetchPosts, PER_PAGE } from 'services/api';
 import { textContent } from 'data/textContent';
 import { useHttpRequest, usePagination } from 'hooks';
+import { useMedia } from 'context/MediaContext';
 
 const PostsPage = () => {
+  const { isMobile } = useMedia();
   const [searchParams, setSearchParams] = useSearchParams();
   const page = Number(searchParams.get('page') ?? 1);
 
   const params = useMemo(() => ({ page }), [page]);
   const { data, error, loading } = useHttpRequest(fetchPosts, params);
+  const totalPages = data?.pages ?? 1;
+  const totalPosts = Number(data?.totalPosts ?? 1);
 
   useEffect(() => {
     if (error) console.log('error', error);
@@ -30,29 +35,40 @@ const PostsPage = () => {
     setSearchParams({ page });
   };
 
+  const changePage = (isIncrement = true) =>
+    setSearchParams({ page: page + (isIncrement ? 1 : -1) });
+
   const register = usePagination({
     onChange: setPage,
     currentPage: page,
     perPage: PER_PAGE,
-    totalItems: Number(data?.totalPosts ?? 1),
+    totalItems: totalPosts,
     showTotal: true,
   });
 
-  return (
-    <>
-      <Section>
-        <Container>
-          <Title>POSTS</Title>
-          <Text>{textContent.postsPageDescription}</Text>
+  const showButtonBox = isMobile && totalPages > 1;
+  const showPosts = !!data?.posts.length;
 
-          <Wrapper>
-            <Pagination {...register} />
-            <PostHeadersList posts={data?.posts} />
-            {loading && <Loader />}
-          </Wrapper>
-        </Container>
-      </Section>
-    </>
+  return (
+    <Section>
+      <Container>
+        <Title>POSTS</Title>
+        <Text>{textContent.postsPageDescription}</Text>
+        <Wrapper>
+          {!isMobile && <Pagination {...register} />}
+          {showPosts && <PostHeadersList posts={data?.posts} />}
+          {showButtonBox && (
+            <PagButtonBlock
+              changePage={changePage}
+              disabled={loading}
+              page={page}
+              totalPages={totalPages}
+            />
+          )}
+          {loading && <Loader />}
+        </Wrapper>
+      </Container>
+    </Section>
   );
 };
 
