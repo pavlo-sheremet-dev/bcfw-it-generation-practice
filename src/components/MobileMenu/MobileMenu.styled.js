@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
-export const Box = styled.div`
+export const MotionBox = styled(motion.div)`
   position: fixed;
   top: 0;
   right: 0;

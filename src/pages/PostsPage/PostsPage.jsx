@@ -1,16 +1,14 @@
 import { useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
-  Container,
   Loader,
   PagButtonBlock,
   Pagination,
   PostHeadersList,
-  Section,
   Text,
   Title,
 } from 'components';
-import { Wrapper } from './PostsPage.styled';
+import { Container, Section, Wrapper } from './PostsPage.styled';
 
 import { fetchPosts, PER_PAGE } from 'services/api';
 import { textContent } from 'data/textContent';

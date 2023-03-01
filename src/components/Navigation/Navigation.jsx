@@ -1,27 +1,24 @@
+import { useDispatch } from 'react-redux';
+import { toggleMobileMenu } from 'redux/global/slice';
+import { getRoutes } from 'routes/routes';
 import { NavLink, NavList } from './Navigation.styled';
 
 export const Navigation = () => {
+  const dispatch = useDispatch();
+  const routes = getRoutes({ isPrivateRoute: false });
   return (
     <nav>
       <NavList>
-        <li>
-          <NavLink to="/" end>
-            Home
+        {routes.map(({ title, path, relativePath }) => (
+          <NavLink
+            to={path}
+            key={path}
+            end={!relativePath}
+            onClick={() => dispatch(toggleMobileMenu())}
+          >
+            {title}
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/posts">Posts</NavLink>
-        </li>
-        <li>
-          <NavLink to="/team">Our team</NavLink>
-        </li>
-
-        <li>
-          <NavLink to="/page1">Link_to_Page_1</NavLink>
-        </li>
-        <li>
-          <NavLink to="/page2">Link_to_Page_2</NavLink>
-        </li>
+        ))}
       </NavList>
     </nav>
   );

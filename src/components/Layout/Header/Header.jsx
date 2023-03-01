@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { useMedia } from 'context/MediaContext';
 
@@ -27,12 +28,13 @@ export const Header = () => {
         <HeaderContainer>
           <Logo />
           <ThemeSwitcher />
+
           {isMobile && (
             <IconButton icon={RxHamburgerMenu} addClass="burger-button" />
           )}
         </HeaderContainer>
       </HeaderStyled>
-      {showMobileMenu && isMobile && <MobileMenu />}
+      {isMobile && <MobileMenu isVisible={showMobileMenu} />}
     </>
   );
 };

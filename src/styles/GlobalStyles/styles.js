@@ -6,6 +6,7 @@ export const globalStyles = css`
   html {
     box-sizing: border-box;
     scroll-behavior: smooth;
+    height: 100%;
   }
 
   body {
@@ -16,6 +17,7 @@ export const globalStyles = css`
     min-height: 100vh;
     background: #cccccc;
     font-style: normal;
+    height: 100%;
   }
 
   h1,
