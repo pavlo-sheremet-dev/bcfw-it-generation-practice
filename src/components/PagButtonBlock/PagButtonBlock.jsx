@@ -5,7 +5,7 @@ export const PagButtonBlock = ({ changePage, page, totalPages, disabled }) => {
   const increment = () => changePage(true);
   return (
     <ButtonBox
-      initial={{ opacity: 0, translateY: '-20px' }}
+      initial={{ opacity: 0, translateY: 10 }}
       animate={{ opacity: 1, translateY: 0 }}
       transition={{ duration: 0.2, delay: 0.2 }}
     >

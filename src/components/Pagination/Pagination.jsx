@@ -9,8 +9,8 @@ export const Pagination = registerProps => {
 
   return (
     <MotionBox
-      initial={{ opacity: 0, scale: 0.7 }}
-      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, translateY: 10 }}
+      animate={{ opacity: 1, translateY: 0 }}
       transition={{ duration: 0.3, delay: 0.2 }}
     >
       <Paginate
