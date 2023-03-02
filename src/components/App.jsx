@@ -1,11 +1,11 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from 'components';
+
 import HomePage from 'pages/HomePage';
-import Page1 from 'pages/Page1';
-import Page2 from 'pages/Page2';
 import TeamPage from 'pages/TeamPage';
 import PostsPage from 'pages/PostsPage/PostsPage';
 import PostPage from 'pages/PostPage';
+import SignUpPage from 'pages/SignUpPage';
 
 const App = () => {
   return (
@@ -16,8 +16,8 @@ const App = () => {
           <Route path="posts" element={<PostsPage />} />
           <Route path="posts/:postId" element={<PostPage />} />
           <Route path="team" element={<TeamPage />} />
-          <Route path="page1" element={<Page1 />} />
-          <Route path="page2" element={<Page2 />} />
+          <Route path="signup" element={<SignUpPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
     </>

@@ -41,13 +41,13 @@ export const routes = {
   //   isPrivateRoute: false,
   //   shouldDisplay: true,
   // },
-  // signUp: {
-  //   title: 'Sign Up',
-  //   path: '/signup',
-  //   relativePath: 'signup',
-  //   isPrivateRoute: false,
-  //   shouldDisplay: true,
-  // },
+  signUp: {
+    title: 'Sign Up',
+    path: '/signup',
+    relativePath: 'signup',
+    isPrivateRoute: false,
+    shouldDisplay: true,
+  },
 };
 
 export const getRoutes = ({ isPrivateRoute = false }) =>

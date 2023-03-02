@@ -1,8 +1,13 @@
 import { StyledButton } from './Button.styled';
 
-export const Button = ({ label, onClick = () => {}, ...restProps }) => {
+export const Button = ({
+  label,
+  onClick = () => {},
+  type = 'button',
+  ...restProps
+}) => {
   return (
-    <StyledButton type="button" onClick={onClick} {...restProps}>
+    <StyledButton type={type} onClick={onClick} {...restProps}>
       {label}
     </StyledButton>
   );
