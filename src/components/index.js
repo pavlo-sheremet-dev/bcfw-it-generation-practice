@@ -7,7 +7,6 @@ export * from 'components/_reusable/Loader/Loader';
 export * from 'components/_reusable/BackDrop/BackDrop';
 export * from 'components/_reusable/Typography/Typography.styled';
 export * from 'components/_reusable/Grid/Grid.styled';
-
 // Layout
 export * from 'components/Layout/Layout';
 export * from 'components/Layout/Layout.styled';
@@ -24,8 +23,11 @@ export * from 'components/Particle/Particle';
 export * from 'components/Post/PostHeadersList';
 export * from 'components/Pagination/Pagination';
 export * from 'components/PagButtonBlock/PagButtonBlock';
+
 // Sections
 export * from 'components/Sections/ExampleSection';
 // Global
 export * from 'components/App';
 export * from 'components/Media/Media';
+// Forms
+export * from 'components/Forms/SignUpForm/SignUpForm';
