@@ -23,6 +23,7 @@ export * from 'components/Particle/Particle';
 export * from 'components/Post/PostHeadersList';
 export * from 'components/Pagination/Pagination';
 export * from 'components/PagButtonBlock/PagButtonBlock';
+export * from 'components/LangSwitcher/LangSwitcher';
 
 // Sections
 export * from 'components/Sections/ExampleSection';

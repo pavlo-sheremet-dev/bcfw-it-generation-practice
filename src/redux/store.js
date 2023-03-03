@@ -14,7 +14,7 @@ import { globalSlice } from './global/slice';
 import storage from 'redux-persist/lib/storage';
 
 const persistedGlobalReducer = persistReducer(
-  { key: 'global__JFrh', whitelist: ['themeTitle'], storage },
+  { key: 'global__JFrh', whitelist: ['themeTitle', 'language'], storage },
   globalSlice.reducer,
 );
 

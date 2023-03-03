@@ -26,4 +26,5 @@ export const globalSlice = createSlice({
   },
 });
 
-export const { switchTheme, toggleMobileMenu } = globalSlice.actions;
+export const { switchTheme, toggleMobileMenu, changeLanguage } =
+  globalSlice.actions;

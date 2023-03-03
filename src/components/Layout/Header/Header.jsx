@@ -4,7 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { useMedia } from 'context/MediaContext';
 
-import { ThemeSwitcher, Logo, IconButton, MobileMenu } from 'components';
+import {
+  ThemeSwitcher,
+  Logo,
+  IconButton,
+  MobileMenu,
+  LangSwitcher,
+} from 'components';
 import { HeaderContainer, HeaderStyled } from './Header.styled';
 
 import { selectShowMobileMenu } from 'redux/global/selectors';
@@ -27,6 +33,7 @@ export const Header = () => {
       <HeaderStyled>
         <HeaderContainer>
           <Logo />
+          <LangSwitcher />
           <ThemeSwitcher />
 
           {isMobile && (
