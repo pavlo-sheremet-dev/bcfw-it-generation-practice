@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import 'modern-normalize';
 import { App, Media } from 'components';
@@ -10,15 +10,17 @@ import { PersistGate } from 'redux-persist/integration/react';
 import 'services/i18next';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
-  <Provider store={store}>
-    <PersistGate persistor={persistor}>
-      <BrowserRouter>
-        <Media>
-          <App />
-        </Media>
-      </BrowserRouter>
-    </PersistGate>
-  </Provider>,
-  // </React.StrictMode>,
+  <React.StrictMode>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <BrowserRouter>
+          <Media>
+            <Suspense fallback="langs">
+              <App />
+            </Suspense>
+          </Media>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  </React.StrictMode>,
 );

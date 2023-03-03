@@ -1,35 +1,35 @@
 import { useTranslation } from 'react-i18next';
+import { langs } from 'services/i18next';
+import { Box, Separator, Button } from './LangSwitcher.styled';
 
 export const LangSwitcher = () => {
   const { i18n } = useTranslation();
 
-  const onClick = lng => {
-    i18n.changeLanguage(lng);
+  const changeLang = lng => () => i18n.changeLanguage(lng);
+
+  const buttonsProps = {
+    changeLang,
+    currentLang: i18n.language,
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        gap: 10,
-      }}
+    <Box>
+      <LangButton lang={langs.UK} {...buttonsProps} />
+      <Separator />
+      <LangButton lang={langs.EN} {...buttonsProps} />
+    </Box>
+  );
+};
+
+const LangButton = ({ lang = langs.UK, changeLang, currentLang }) => {
+  return (
+    <Button
+      type="button"
+      onClick={changeLang(lang)}
+      isActive={currentLang === lang}
     >
-      <button
-        type="button"
-        style={{ color: i18n.language === 'uk' ? 'green' : 'inherit' }}
-        onClick={() => onClick('uk')}
-      >
-        UK
-      </button>
-      |
-      <button
-        style={{ color: i18n.language === 'en' ? 'green' : 'inherit' }}
-        type="button"
-        onClick={() => onClick('en')}
-      >
-        EN
-      </button>
-    </div>
+      {lang}
+    </Button>
   );
 };
 

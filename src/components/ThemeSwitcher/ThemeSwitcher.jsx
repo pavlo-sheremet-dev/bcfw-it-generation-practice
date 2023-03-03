@@ -15,9 +15,9 @@ export const ThemeSwitcher = () => {
   return (
     <ThemeButton type="button" onClick={handleClick}>
       {themeTitle === colorsKeys.LIGHT ? (
-        <BsSun size={30} />
+        <BsSun size={25} />
       ) : (
-        <BsMoon size={30} />
+        <BsMoon size={25} />
       )}
     </ThemeButton>
   );
