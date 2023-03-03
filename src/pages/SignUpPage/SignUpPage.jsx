@@ -1,11 +1,12 @@
-import { Container, Section, SignUpForm, Title } from 'components';
+import { SignUpForm, Title } from 'components';
+import { Section, Container } from './SignUpPage.styled';
 
 const SignUpPage = () => {
   return (
     <>
       <Section>
         <Container>
-          <Title>SIGN UP PAGE</Title>
+          <Title className="isHidden">SIGN UP PAGE</Title>
           <SignUpForm />
         </Container>
       </Section>

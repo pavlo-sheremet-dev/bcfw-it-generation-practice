@@ -1,8 +1,8 @@
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 
 import { config, initialValues, validationSchema } from './config';
 
-import { Button } from 'components';
+import { Button, Form } from 'components';
 import { TextField } from '../TextField/TextField';
 
 export const SignUpForm = () => {

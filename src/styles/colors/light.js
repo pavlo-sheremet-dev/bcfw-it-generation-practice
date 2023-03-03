@@ -8,5 +8,8 @@ export const light = {
     brandButtonHover: '#869169',
     gray: '#999999',
     white: '#fff',
+    error: '#e64949',
+    input: '#eeeeee',
+    form: '#00000010',
   },
 };

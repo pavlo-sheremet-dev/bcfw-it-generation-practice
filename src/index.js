@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'modern-normalize';
 import { App, Media } from 'components';
@@ -15,9 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate persistor={persistor}>
         <BrowserRouter>
           <Media>
-            <Suspense fallback="langs">
-              <App />
-            </Suspense>
+            <App />
           </Media>
         </BrowserRouter>
       </PersistGate>

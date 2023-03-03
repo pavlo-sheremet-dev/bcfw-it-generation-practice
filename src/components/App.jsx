@@ -5,7 +5,7 @@ import HomePage from 'pages/HomePage';
 import TeamPage from 'pages/TeamPage';
 import PostsPage from 'pages/PostsPage/PostsPage';
 import PostPage from 'pages/PostPage';
-import SignUpPage from 'pages/SignUpPage';
+import SignUpPage from 'pages/SignUpPage/SignUpPage';
 
 const App = () => {
   return (

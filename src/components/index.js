@@ -24,6 +24,7 @@ export * from 'components/Post/PostHeadersList';
 export * from 'components/Pagination/Pagination';
 export * from 'components/PagButtonBlock/PagButtonBlock';
 export * from 'components/LangSwitcher/LangSwitcher';
+export * from 'components/Forms/Forms.styled';
 
 // Sections
 export * from 'components/Sections/ExampleSection';
