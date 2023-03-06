@@ -7,6 +7,7 @@ export const MotionBox = styled(motion.div)`
   right: 0;
   width: 250px;
   height: 100vh;
+  z-index: 1100;
 
   background-color: ${({ theme }) => theme.colors.mainBackground};
   padding-top: 20px;
