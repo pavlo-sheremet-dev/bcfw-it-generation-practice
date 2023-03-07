@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { BsAlarm, BsAlignEnd, BsAlignMiddle } from 'react-icons/bs';
 
 export const config = [
   {
@@ -6,18 +7,21 @@ export const config = [
     name: 'name',
     type: 'text',
     placeholder: 'Enter your name',
+    icon: BsAlarm,
   },
   {
     label: 'Email',
     name: 'email',
     type: 'text',
     placeholder: 'Enter your email',
+    icon: BsAlignEnd,
   },
   {
     label: 'Password',
     name: 'password',
     type: 'password',
     placeholder: 'Enter your password',
+    icon: BsAlignMiddle,
   },
 ];
 

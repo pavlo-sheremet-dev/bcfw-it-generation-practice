@@ -12,6 +12,21 @@ export const InputLabel = styled.label`
   }
 `;
 
+export const InputBox = styled.div`
+  position: relative;
+  width: 100%;
+  height: ${({ theme }) => theme.spacing(9)};
+  margin-bottom: ${({ theme }) => theme.spacing(1)};
+
+  & svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    z-index: 2;
+  }
+`;
+
 export const Label = styled.span`
   display: block;
   font-size: ${({ theme }) => theme.fs.l};
@@ -21,18 +36,21 @@ export const Label = styled.span`
 
 export const Input = styled.input`
   width: 100%;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1;
   height: ${({ theme }) => theme.spacing(9)};
   padding: 0 10px;
-  margin-bottom: ${({ theme }) => theme.spacing(1)};
+  padding-left: 40px;
+
   border: none;
   color: ${({ theme }) => theme.colors.text};
   background-color: ${({ theme }) => theme.colors.input};
   border: 1px solid ${({ theme }) => theme.colors.text};
 
   &::placeholder {
-    padding: 0;
+    padding-left: 0;
   }
 `;
 

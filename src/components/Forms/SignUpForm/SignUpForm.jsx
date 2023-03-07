@@ -19,13 +19,14 @@ export const SignUpForm = () => {
       onSubmit={onSubmit}
     >
       <Form>
-        {config.map(({ name, label, type, placeholder }) => (
+        {config.map(({ name, label, type, placeholder, icon }) => (
           <TextField
             key={name}
             name={name}
             label={label}
             type={type}
             placeholder={placeholder}
+            icon={icon}
           />
         ))}
 
