@@ -4,6 +4,7 @@ import 'react-datetime/css/react-datetime.css';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from 'components';
+import iso from 'to-iso-string';
 
 const categories = [
   {
@@ -88,7 +89,7 @@ export const TransactionForm = () => {
     defaultValues: {
       type: true,
       amount: 10,
-      transactionDate: formatDateToISO(new Date()),
+      transactionDate: iso(new Date()),
     },
   });
 
@@ -176,16 +177,4 @@ export const TransactionForm = () => {
       <Button type="submit" label={'Add'} />
     </form>
   );
-};
-
-const formatDateToISO = date => {
-  const year = date.getUTCFullYear();
-  const month = ('0' + (date.getUTCMonth() + 1)).slice(-2);
-  const day = ('0' + date.getUTCDate()).slice(-2);
-  const hours = ('0' + date.getUTCHours()).slice(-2);
-  const minutes = ('0' + date.getUTCMinutes()).slice(-2);
-  const seconds = ('0' + date.getUTCSeconds()).slice(-2);
-  const milliseconds = ('00' + date.getUTCMilliseconds()).slice(-3);
-
-  return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}Z`;
 };
