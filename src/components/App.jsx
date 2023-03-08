@@ -6,6 +6,7 @@ import TeamPage from 'pages/TeamPage';
 import PostsPage from 'pages/PostsPage/PostsPage';
 import PostPage from 'pages/PostPage';
 import SignUpPage from 'pages/SignUpPage/SignUpPage';
+import TransactionPage from 'pages/TransactionPage';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="posts/:postId" element={<PostPage />} />
           <Route path="team" element={<TeamPage />} />
           <Route path="signup" element={<SignUpPage />} />
+          <Route path="transaction" element={<TransactionPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

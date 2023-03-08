@@ -48,6 +48,13 @@ export const routes = {
     isPrivateRoute: false,
     shouldDisplay: true,
   },
+  transaction: {
+    title: 'Transaction',
+    path: '/transaction',
+    relativePath: 'transaction',
+    isPrivateRoute: false,
+    shouldDisplay: true,
+  },
 };
 
 export const getRoutes = ({ isPrivateRoute = false }) =>

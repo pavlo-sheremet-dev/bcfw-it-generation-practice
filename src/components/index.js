@@ -24,7 +24,6 @@ export * from 'components/Post/PostHeadersList';
 export * from 'components/Pagination/Pagination';
 export * from 'components/PagButtonBlock/PagButtonBlock';
 export * from 'components/LangSwitcher/LangSwitcher';
-export * from 'components/Forms/Forms.styled';
 
 // Sections
 export * from 'components/Sections/ExampleSection';
@@ -32,4 +31,7 @@ export * from 'components/Sections/ExampleSection';
 export * from 'components/App';
 export * from 'components/Media/Media';
 // Forms
+export * from 'components/Forms/Forms.styled';
 export * from 'components/Forms/SignUpForm/SignUpForm';
+export * from 'components/Forms/TransactionForm/TransactionForm';
+export * from 'components/Forms/TransactionForm/TransactionFormFormik';
