@@ -2,6 +2,7 @@ import * as yup from 'yup';
 import Datetime from 'react-datetime';
 import { Button } from 'components';
 import { Formik, Form, useField } from 'formik';
+import moment from 'moment';
 
 const categories = [
   {
@@ -65,10 +66,10 @@ const TYPE = {
 const validationSchema = yup
   .object({
     type: yup.bool().required(),
-    categoryId: yup.string(),
-    incomeId: yup.string(),
+    categoryId: yup.string().required(),
+    incomeId: yup.string().required(),
     amount: yup.number().min(1).required(),
-    transactionDate: yup.string(),
+    transactionDate: yup.string().required(),
     comment: yup.string(),
   })
   .required();
@@ -76,7 +77,7 @@ const validationSchema = yup
 export const TransactionFormFormik = () => {
   const handleSubmit = (
     { type, categoryId, incomeId, amount, transactionDate, comment },
-    actions,
+    { resetForm },
   ) => {
     const formData = {
       type: type ? TYPE.EXPENSE : TYPE.INCOME,
@@ -86,6 +87,7 @@ export const TransactionFormFormik = () => {
       comment,
     };
     console.log('formData', formData);
+    resetForm();
   };
 
   const expenseOptions = categories.filter(({ type }) => type === TYPE.EXPENSE);
@@ -189,6 +191,7 @@ export const DateInput = ({ label, ...otherProps }) => {
         timeFormat={false}
         value={new Date(value)}
         dateFormat={'DD/MM/YYYY'}
+        isValidDate={disableFutureDt}
         onChange={moment => {
           onChange({
             target: {
@@ -200,4 +203,9 @@ export const DateInput = ({ label, ...otherProps }) => {
       />
     </label>
   );
+};
+
+const today = moment();
+const disableFutureDt = current => {
+  return current.isBefore(today);
 };

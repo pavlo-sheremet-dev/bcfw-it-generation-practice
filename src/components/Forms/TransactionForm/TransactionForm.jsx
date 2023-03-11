@@ -5,6 +5,11 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from 'components';
 import iso from 'to-iso-string';
+import moment from 'moment';
+
+// import Select from '@mui/joy/Select';
+// import Option from '@mui/joy/Option';
+import Input from '@mui/joy/Input';
 
 const categories = [
   {
@@ -68,10 +73,10 @@ const TYPE = {
 const validationSchema = yup
   .object({
     type: yup.bool().required(),
-    categoryId: yup.string(),
-    incomeId: yup.string(),
+    categoryId: yup.string().required(),
+    incomeId: yup.string().required(),
     amount: yup.number().min(1).required(),
-    transactionDate: yup.string(),
+    transactionDate: yup.string().required(),
     comment: yup.string(),
   })
   .required();
@@ -81,7 +86,7 @@ export const TransactionForm = () => {
     register,
     handleSubmit,
     reset,
-    // formState: { errors },
+    formState: { errors },
     watch,
     control,
   } = useForm({
@@ -92,6 +97,8 @@ export const TransactionForm = () => {
       transactionDate: iso(new Date()),
     },
   });
+
+  console.log('errors', errors);
 
   const type = watch('type');
 
@@ -111,7 +118,7 @@ export const TransactionForm = () => {
       comment,
     };
     console.log(formData);
-    reset();
+    // reset();
   };
 
   const expenseOptions = categories.filter(({ type }) => type === TYPE.EXPENSE);
@@ -123,7 +130,8 @@ export const TransactionForm = () => {
       style={{ display: 'flex', flexDirection: 'column', gap: 20, zIndex: 1 }}
     >
       <label>
-        <input type="checkbox" {...register('type')} />
+        {/* <input type="checkbox" {...register('type')} /> */}
+        <Input type="checkbox" {...register('type')} />
         <span>{type ? TYPE.EXPENSE : TYPE.INCOME}</span>
       </label>
 
@@ -154,9 +162,10 @@ export const TransactionForm = () => {
             <Datetime
               value={new Date(value)}
               viewMode="time"
-              initialValue={Date.now()}
               dateFormat={true}
               timeFormat={false}
+              isValidDate={disableFutureDt}
+              closeOnSelect={true}
               onChange={moment => {
                 onChange({
                   target: {
@@ -177,4 +186,9 @@ export const TransactionForm = () => {
       <Button type="submit" label={'Add'} />
     </form>
   );
+};
+
+const today = moment();
+const disableFutureDt = current => {
+  return current.isBefore(today);
 };
